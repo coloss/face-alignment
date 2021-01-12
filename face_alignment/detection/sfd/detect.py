@@ -17,7 +17,7 @@ def detect(net, img, device):
 
     return batch_detect(net, img, device)
 
-
+@profile
 def batch_detect(net, img_batch, device):
     """
     Inputs:
@@ -45,6 +45,7 @@ def batch_detect(net, img_batch, device):
     return bboxlists
 
 
+@profile
 def get_predictions(olist, batch_size):
     bboxlists = []
     variances = [0.1, 0.2]
