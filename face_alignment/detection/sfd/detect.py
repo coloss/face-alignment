@@ -14,8 +14,9 @@ def detect(net, img, device):
     img = np.expand_dims(img, 0)
 
     img = torch.from_numpy(img).to(device, dtype=torch.float32)
-
-    return batch_detect(net, img, device)
+    res = batch_detect(net, img, device)
+    del img
+    return res
 
 @profile
 def batch_detect(net, img_batch, device):
