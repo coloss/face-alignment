@@ -12,10 +12,11 @@ def detect(net, img, device):
     img = img.transpose(2, 0, 1)
     # Creates a batch of 1
     img = np.expand_dims(img, 0)
-
-    img = torch.from_numpy(img).to(device, dtype=torch.float32)
-    res = batch_detect(net, img, device)
-    del img
+    torch_img = torch.from_numpy(img)
+    torch_img_dev = torch_img.to(device, dtype=torch.float32)
+    res = batch_detect(net, torch_img_dev, device)
+    del torch_img
+    del torch_img_dev
     return res
 
 @profile
