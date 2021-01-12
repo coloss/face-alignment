@@ -3,7 +3,7 @@ from enum import IntEnum
 from skimage import io
 import numpy as np
 from distutils.version import LooseVersion
-
+from memory_profiler import profile
 from .utils import *
 
 
@@ -107,6 +107,7 @@ class FaceAlignment:
         return self.get_landmarks_from_image(image_or_path, detected_faces)
 
     @torch.no_grad()
+    @profile
     def get_landmarks_from_image(self, image_or_path, detected_faces=None):
         """Predict the landmarks for each face present in the image.
 
