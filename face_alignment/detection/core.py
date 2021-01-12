@@ -5,6 +5,7 @@ import numpy as np
 import torch
 from skimage import io
 
+from memory_profiler import profile
 
 class FaceDetector(object):
     """An abstract class representing a face detector.
@@ -134,6 +135,7 @@ class FaceDetector(object):
         raise NotImplementedError
 
     @staticmethod
+    @profile
     def tensor_or_path_to_ndarray(tensor_or_path):
         """Convert path (represented as a string) or torch.tensor to a numpy.ndarray
 

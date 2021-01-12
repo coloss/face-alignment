@@ -5,8 +5,9 @@ import cv2
 import numpy as np
 
 from .bbox import *
+from memory_profiler import profile
 
-
+@profile
 def detect(net, img, device):
     img = img.transpose(2, 0, 1)
     # Creates a batch of 1
