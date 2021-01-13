@@ -17,6 +17,7 @@ def detect(net, img, device):
     res = batch_detect(net, torch_img_dev, device)
     del torch_img
     del torch_img_dev
+    torch.cuda.empty_cache()
     return res
 
 @profile
