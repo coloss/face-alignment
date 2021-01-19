@@ -7,7 +7,7 @@ import numpy as np
 from .bbox import *
 from memory_profiler import profile
 
-@profile
+# @profile
 def detect(net, img, device):
     img = img.transpose(2, 0, 1)
     # Creates a batch of 1
@@ -20,7 +20,7 @@ def detect(net, img, device):
     torch.cuda.empty_cache()
     return res
 
-@profile
+# @profile
 def batch_detect(net, img_batch, device):
     """
     Inputs:
@@ -48,7 +48,7 @@ def batch_detect(net, img_batch, device):
     return bboxlists
 
 
-@profile
+# @profile
 def get_predictions(olist, batch_size):
     bboxlists = []
     variances = [0.1, 0.2]

@@ -135,7 +135,7 @@ class FaceDetector(object):
         raise NotImplementedError
 
     @staticmethod
-    @profile
+    # @profile
     def tensor_or_path_to_ndarray(tensor_or_path):
         """Convert path (represented as a string) or torch.tensor to a numpy.ndarray
 

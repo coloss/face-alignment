@@ -32,7 +32,7 @@ class SFDDetector(FaceDetector):
         self.face_detector.to(device)
         self.face_detector.eval()
 
-    @profile
+    # @profile
     def _filter_bboxes(self, bboxlist):
         if len(bboxlist) > 0:
             keep = nms(bboxlist, 0.3)
@@ -41,7 +41,7 @@ class SFDDetector(FaceDetector):
 
         return bboxlist
 
-    @profile
+    # @profile
     def detect_from_image(self, tensor_or_path):
         image = self.tensor_or_path_to_ndarray(tensor_or_path)
 
